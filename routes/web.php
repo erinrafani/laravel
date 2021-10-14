@@ -38,3 +38,23 @@ Route::get('/cita', function () {
 Route::get('/teman', function () {
     return view('teman');
 });
+Route::get('/yayasan', function () {
+    return view('latihanerin/yayasan');
+});
+
+Route::get('/pesan/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = null, $minuman = null, $cemilan = null) {
+
+    if ($makanan && $minuman && $cemilan != null) {
+        return "Anda memesan Makanan = $makanan <br>
+                Anda memesan Minuman = $minuman <br>
+                Anda memesan Cemilan = $cemilan";
+    } else if ($makanan && $minuman != null) {
+        return "Anda memesan Makanan = $makanan <br>
+                Anda memesan Minuman = $minuman";
+    } else if ($makanan || $minuman != null) {
+        return $makanan != null ? "Anda memesan makanan : $makanan" : "Anda memesan minuman : $minuman";
+    } else {
+        return "Anda tidak memesan silahkan pulang";
+    }
+
+});
