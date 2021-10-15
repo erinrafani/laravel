@@ -58,3 +58,88 @@ Route::get('/pesan/{makanan?}/{minuman?}/{cemilan?}', function ($makanan = null,
     }
 
 });
+Route::get('profile', function () {
+    $nama = "Abdul";
+    return view('profile', compact('nama'));
+});
+
+Route::get('biodata', function () {
+    $nama = "Erin";
+    $umur = "17 tahun";
+    $alamat = "cangkuang";
+    $kelas = "12 RPL 2";
+    $hobi = "menggambar";
+    return view('biodata', compact('nama', 'umur', 'alamat', 'kelas', 'hobi'));
+});
+Route::get('blog', function () {
+    $posts = [
+        ['id' => 1, 'title' => 'lorem ipsum 1', 'content' => 'content pertama'],
+        ['id' => 2, 'title' => 'lorem ipsum 2', 'content' => 'content kedua'],
+        ['id' => 3, 'title' => 'lorem ipsum 3', 'content' => 'content ketiga'],
+
+    ];
+    return view('blog', compact('posts'));
+});
+
+Route::get('tugas', function () {
+    $pilih = [
+        ['id' => '1', 'name' => 'Erin rafani',
+            'username' => 'erin_rafani',
+            'email' => 'erin@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Matematika',
+                'mapel2' => 'Fisika',
+                'mapel3' => 'Kimia',
+
+            ],
+        ],
+        ['id' => '2', 'name' => 'Lusi',
+            'username' => 'Lusi-Aja',
+            'email' => 'lusi@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Indonesia',
+                'mapel2' => 'Fisika',
+                'mapel3' => 'Matematika',
+
+            ],
+        ],
+        ['id' => '3', 'name' => 'Nurlinda',
+            'username' => 'nur_linda',
+            'email' => 'linda@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Matematika',
+                'mapel2' => 'Inggris',
+                'mapel3' => 'Kimia',
+
+            ],
+        ],
+
+        ['id' => '4', 'name' => 'Berlinka',
+            'username' => 'ber_lin',
+            'email' => 'berlin@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'inggris',
+                'mapel2' => 'Fisika',
+                'mapel3' => 'olahraga',
+
+            ],
+        ],
+
+        ['id' => '5', 'name' => 'Amelia',
+            'username' => 'Amel_lia',
+            'email' => 'Amel@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Matematika',
+                'mapel2' => 'Seni Budaya',
+                'mapel3' => 'sunda',
+
+            ],
+        ],
+    ];
+    return view('tugas', compact('pilih'));
+});
