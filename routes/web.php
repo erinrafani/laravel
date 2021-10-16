@@ -143,3 +143,12 @@ Route::get('tugas', function () {
     ];
     return view('tugas', compact('pilih'));
 });
+
+Route::get('/testmodel', function () {
+    $post = new App\Models\Post;
+    $post->title = "7 Amalan Pembuka Jodoh";
+    $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+    $post->save();
+    return $post;
+// check record baru di database
+});
